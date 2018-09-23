@@ -1,6 +1,6 @@
 <?php $i = 1; $args1 = array( 'post_type' => 'servizi', 'posts_per_page' => -1 ); $loop = new WP_Query( $args1 ); ?>
 	<div class="servizi-list container mb-5 pb-5">
-        <h2 class="title text-center mb-3">I nostri <strong>servizi</strong></h2>
+        <h2 class="title text-center">I nostri <strong>servizi</strong></h2>
 	    <div class="row d-flex">
 			<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 	            <div class="col-12 col-md-2 col-lg-4 mb-3">

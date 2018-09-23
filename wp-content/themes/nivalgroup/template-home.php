@@ -16,7 +16,6 @@
     <?php get_template_part( 'partials/immagine_testo' ); ?>
     <?php get_template_part( 'partials/servizi-list' ); ?>
     <?php get_template_part( 'partials/lavoriamo-list' ); ?>
-    <?php get_template_part( 'partials/call-to-contact' ); ?>
 
 <?php endwhile; ?>
 

@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 			<?php wpex_hook_main_bottom(); ?>
+			<?php get_template_part( 'partials/call-to-contact' ); ?>
 
 		</main><!-- #main-content -->
 
@@ -30,8 +31,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php wp_footer(); ?>
 <script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/jquery.min.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/jqueryui.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/slick.min.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/selectric.min.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/checkator.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/main.min.js"></script>
-
 </body>
 </html>

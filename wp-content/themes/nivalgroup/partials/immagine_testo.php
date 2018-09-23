@@ -1,5 +1,5 @@
-<div class="immagine_testo row">
-    <div class="col 12">
+<div class="immagine_testo row ml-0 mr-0">
+    <div class="col-12">
         <div class="container">
         <div class="d-flex row align-items-center justify-content-center pt-5 pb-5">
             <div class="col-12 col-lg-5 pt-5 position-relative z1">
