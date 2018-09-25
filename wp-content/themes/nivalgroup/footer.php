@@ -21,11 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php wpex_hook_wrap_bottom(); ?>
 
-	</div><!-- #wrap -->
 
 	<?php wpex_hook_wrap_after(); ?>
-
 </div><!-- #outer-wrap -->
+</div><!-- wp class -->
+</div><!-- #wrap -->
 
 <?php wpex_outer_wrap_after(); ?>
 
@@ -35,6 +35,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 <script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/slick.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/selectric.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/checkator.min.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/smoothState.min.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/appear.min.js"></script>
+<script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/countTo.min.js"></script>
 <script type="text/javascript" src="/wp-content/themes/nivalgroup/assets/dist/js/main.min.js"></script>
 </body>
 </html>

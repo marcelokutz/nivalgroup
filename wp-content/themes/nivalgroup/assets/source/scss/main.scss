@@ -72,8 +72,11 @@ h2, .h2,
         }
     }
 }
+
 .vc_btn3,
 .btn {
+    position: relative;
+    overflow: hidden;
     border: 1px solid;
     padding: 1.5rem 2rem;
     border-radius: inherit;
@@ -84,24 +87,57 @@ h2, .h2,
     @media (min-width: 1480px) {    
         font-size: 16px;
     }
+    span.txt {
+        position: relative;
+        z-index: 1;
+    }
+    i {
+        position: relative;
+        z-index: 2;
+    }
+    .effect {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background-color: $theme-color2;
+        transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 0;
+        top: 156px;
+        left: 379.5px;
+    }
     &.btn-default {
-        border-color: $theme-color;
+        border: none;
         background-color: $theme-color;
         color: $white;
+        .effect {
+            background-color: $theme-color2;
+        }
         &:hover {
             border-color: $theme-color2;
             color: $white;
-            background-color: $theme-color2;
         }
     }
     &.btn-secondary {
         border-color: $white;
         background-color: $white;
         color: $theme-color;
-        &:hover {
+        .effect {
             background-color: $theme-color2;
+        }
+        &:hover {
             border-color: $theme-color2;
             color: $white;
+        }
+    }
+    &:hover {
+        .effect {
+            width: 225%;
+            height: 562.5px;
         }
     }
 }
@@ -150,6 +186,47 @@ h2, .h2,
 #page {
     overflow: hidden;
 }
+.loading-nival {
+    display: block;
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    transform: translate(0,0);
+    width: 0vw;
+    height: 0vw;
+    background-color: $theme-color;
+    z-index: 100;
+    border-radius: 50%;
+    transition: all 1s ease-out;
+    overflow: hidden;
+    .start-animation & {
+        width: 300vw;
+        height: 300vw;
+        transform: translate(-100vw,-100vw);
+    }
+    .finish-animation & {
+        width: 0vw;
+        height: 0vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50vw,-50vw);
+        transition: all 1s ease 1s;
+    }
+    /*.show-logo & {
+        &:before {
+            content: "";
+            display: block;
+            width: 150px;
+            height: 150px;
+            position: fixed;
+            left: 50%;
+            top: 20%;
+            background: url('../images/logo-symbol.svg') no-repeat 50% 50%;
+            background-size: contain;
+        }
+    }*/
+}
+
 #site-header-sticky-wrapper.is-sticky #site-header,
 #site-header {
     background: #000;
@@ -160,32 +237,48 @@ h2, .h2,
             background: transparent;
             border: none;
             padding: 0;
-            > li > a {
-                color: #fff;
-                font-size: 17px;
-                font-weight: 300;
-                padding: 25px 20px;
-                height: 98px;
-                &.sf-with-ul {
-                    position: relative;
-                    padding-right: 30px;
-                    &:after {
-                        content: "";
-                        display: block;
-                        position: absolute;
-                        right: 10px;
-                        top: 50%;
-                        width: 14px;
-                        height: 8px;
-                        margin: -4px 0 0;
-                        background: url('../images/arrow-bottom-white-sm.svg') no-repeat 0 0;
+            > li {
+                > a {
+                    color: #fff;
+                    font-size: 17px;
+                    font-weight: 300;
+                    padding: 25px 20px;
+                    height: 98px;
+                    &.sf-with-ul {
+                        position: relative;
+                        padding-right: 30px;
+                        &:after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            right: 10px;
+                            top: 50%;
+                            width: 14px;
+                            height: 8px;
+                            margin: -4px 0 0;
+                            background: url('../images/arrow-bottom-white-sm.svg') no-repeat 0 0;
+                        }
+                    }
+                    span {
+                        padding: 0;
+                    }
+                    &:hover {
+                        background-color: $theme-color;
                     }
                 }
-                span {
-                    padding: 0;
+                &.current-menu-ancestor,
+                &.current_page_item {
+                    > a {
+                        background-color: $theme-color;
+                    }
                 }
-                &:hover {
-                    background-color: $theme-color;
+                &.menu-item-182 {
+                    a {
+                        .single-servizi &,
+                        .post-type-archive-servizi & {
+                            background-color: $theme-color;
+                        }
+                    }
                 }
             }
             .sfHover {
@@ -680,6 +773,50 @@ h2, .h2,
             padding-top: 80px;
             position: relative;
             padding-bottom: 20px;
+            &.icon01::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -40px;
+                top: 10px;
+                z-index: -1;
+                width: 146px;
+                height: 110px;
+                background: url('../images/nival-valori-massima-trasparenza.svg') no-repeat 0 0;
+            }
+            &.icon02::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -40px;
+                top: 10px;
+                z-index: -1;
+                width: 113px;
+                height: 110px;
+                background: url('../images/nival-valori-crescita-aziendale.svg') no-repeat 0 0;
+            }
+            &.icon03::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -40px;
+                top: 10px;
+                z-index: -1;
+                width: 114px;
+                height: 120px;
+                background: url('../images/nival-valori-sicurezza-formazione.svg') no-repeat 0 0;
+            }
+            &.icon04::before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -40px;
+                top: 42px;
+                z-index: -1;
+                width: 132px;
+                height: 70px;
+                background: url('../images/nival-valori-impegno-sociale.svg') no-repeat 0 0;
+            }
         }
         a {
             font-weight: 900;
@@ -692,13 +829,15 @@ h2, .h2,
         }
     }
 }
-
+.page-template-template-i-valori,
 .page-id-49 {
     #wrap {
         background-image: url('../images/nival-gruppo-bg.svg');
         background-repeat: no-repeat;
         background-position: 0 500px;
     }
+}
+.page-id-49 {
     .aziende-del-gruppo {
         @media (max-width: 991px) {
             h2 {
@@ -1190,6 +1329,9 @@ h2, .h2,
             right: 0;
             top: 0;
         }
+        iframe {
+            height: 100%;
+        }
     }
     .item-sede {
         position: relative;
@@ -1211,6 +1353,7 @@ h2, .h2,
             font-size: 17px;
             letter-spacing: 1px;
             font-weight: 700;
+            text-transform: uppercase;
         }
         p {
             font-size: 17px;
@@ -1428,22 +1571,41 @@ h2, .h2,
         position: relative;
         z-index: 2; 
         h2 {
-            padding-left: 20%;
             color: $white;
+            @media(min-width: 992px) {
+                padding-left: 20%;
+            }
         }
         .list-vantaggi {
-            margin-left: 5%;
             width: 100%;
+            @media(min-width: 992px) {
+                margin-left: 5%;
+            }
             h3 {
                 color: $theme-color;
                 margin-bottom: 15px;
             }
+            .slick-list,
+            .slick-track {
+                height: 100%;
+            }
         }
         .slick-list {
             overflow: visible;
+            @media(max-width: 991px) {
+                margin-left: -8px;
+            }
         }
         .slick-slide {
             padding: 0 20px;
+            > div {
+                height: 100%;
+                p {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
         }
         .list-vantaggi-item {
             position: relative;
@@ -1453,7 +1615,8 @@ h2, .h2,
             max-width: 28vw;
             background-color: $white;
             height: 100%;
-            padding: 5rem;
+            padding: 5rem 5rem 4rem;
+            min-width: 300px;
             .num {
                 font-size: 50px;
                 color: #ECECEC;
@@ -1468,17 +1631,79 @@ h2, .h2,
         }
     }
     .bg-icon {
-        width: 80%;
+        width: 100%;
         height: 100%;
         top: 0;
-        left: 20%;
+        left: 0;
         background-color: $theme-color;
         position: absolute;
+        @media(min-width: 992px) {
+            width: 80%;
+            left: 20%;
+        }
         svg {
             position: absolute;
             right: 0;
             top: 0;
             max-height: 100%;
+        }
+    }
+    .slick-arrow {
+        position: absolute;
+        top: -90px;
+        background-color: $white;
+        font-size: 0;
+        color: transparent;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        &.slick-next {
+            left: 800px;
+            margin-left: 19px;
+            @media(min-width: 1480px) {
+                left: 800px;
+                margin-left: 19px;
+            }
+            @media(min-width: 1880px) {
+                left: 800px;
+                margin-left: 65px;
+            }
+            @media(min-width: 2150px) {
+                left: 800px;
+                margin-left: 85px;
+            }
+            &:after {
+                content: "\f105";
+                font: 40px/1 'FontAwesome';
+                color: $theme-color;
+            }
+        }
+        &.slick-prev {
+            left: 800px;
+            margin-left: -64px;
+            @media(min-width: 1480px) {
+                left: 800px;
+                margin-left: -64px;
+            }
+            @media(min-width: 1880px) {
+                left: 800px;
+                margin-left: -14px;
+            }
+            @media(min-width: 2150px) {
+                left: 800px;
+                margin-left: 14px;
+            }
+            &:after {
+                content: "\f104";
+                font: 40px/1 'FontAwesome';
+                color: $theme-color;
+            }
+        }
+        &:hover {
+            background-color: $theme-color2;
+            &:after {
+                color: $white;
+            }
         }
     }
 }

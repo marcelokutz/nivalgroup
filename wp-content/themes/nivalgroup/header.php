@@ -22,6 +22,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 
 <body <?php body_class(); ?>>
+<div id="wrap" >
+	<div <?php body_class(); ?>>
 
 	<?php wpex_outer_wrap_before(); ?>
 
@@ -29,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php wpex_hook_wrap_before(); ?>
 
-		<div id="wrap" class="clr">
+		<span class="loading-nival"></span>
 
 			<?php wpex_hook_wrap_top(); ?>
 
