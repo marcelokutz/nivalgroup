@@ -104,14 +104,22 @@ $(document).ready(function () {
         $(this).find('span.effect').css({ top: relY, left: relX })
     });
 
+    if($('#btn-rev').length > 0) {
+        var btnTxt = $('#btn-rev').text();
+        $('#btn-rev').text('');
+        $('#btn-rev').append('<span class="txt">'+btnTxt+'</span><i class="fa-icon-chevron-right"></i><span class="effect"></span>');
+        console.log(btnTxt);
+    }
+
     
 
 
 
     /* start smooth */
     $('#wrap').smoothState({
+        blacklist: '.wpcf7-form',
         onStart: {
-            duration: 400, // Duration of our animation
+            duration: 100, // Duration of our animation
             render: function ($container) {
                 // Add your CSS animation reversing class
                 $container.addClass('start-animation');
@@ -257,8 +265,11 @@ $(document).ready(function () {
                     }
                 });
             }
+        },
+        onAfter: function ($container) {
+            initContactForm();
         }
-    });
+    }).data('smoothState');
 
     countNumbers();
 

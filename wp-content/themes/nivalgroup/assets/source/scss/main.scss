@@ -109,6 +109,8 @@ h2, .h2,
         z-index: 0;
         top: 156px;
         left: 379.5px;
+        font: 0/0 'a';
+        color: transparent;
     }
     &.btn-default {
         border: none;
@@ -197,7 +199,7 @@ h2, .h2,
     background-color: $theme-color;
     z-index: 100;
     border-radius: 50%;
-    transition: all 1s ease-out;
+    transition: all 0.5s ease-out;
     overflow: hidden;
     .start-animation & {
         width: 300vw;
@@ -210,7 +212,7 @@ h2, .h2,
         left: 50%;
         top: 50%;
         transform: translate(-50vw,-50vw);
-        transition: all 1s ease 1s;
+        transition: all 0.5s ease 0s;
     }
     /*.show-logo & {
         &:before {
@@ -273,7 +275,7 @@ h2, .h2,
                     }
                 }
                 &.menu-item-182 {
-                    a {
+                    > a {
                         .single-servizi &,
                         .post-type-archive-servizi & {
                             background-color: $theme-color;
@@ -902,12 +904,12 @@ h2, .h2,
         position: absolute;
         z-index: 0;
         content: "";
-        width: 100%;
-        left: 60%;
-        top: -121px;
+        width: 3000px;
+        left: 50%;
+        top: 50%;
         background-color: #212121;
-        height: 900px;
-        transform: rotate(26deg);
+        height: 3000px;
+        transform: rotate(26deg) translate(-12%, -50%);
 
     }
     .container {
@@ -1432,9 +1434,14 @@ h2, .h2,
             border-color: $theme-color;
             background-color: $theme-color;
             color: $white;
-            background-image: url('../images/arrow-right-white.svg');
-            background-repeat: no-repeat;
-            background-position: 90% 50%;
+            i {
+                position: absolute;
+                font-size: 25px;
+                right: 10%;
+                top: 50%;
+                z-index: 2;
+                transform: translate(0, -50%);
+            }
             &:hover {
                 background-color: $theme-color2;
             }
@@ -1498,6 +1505,7 @@ h2, .h2,
         }
     }
     .slick-next {
+        left: auto;
         right: -35px;
         @media (min-width: 992px) {
             right: 0;
